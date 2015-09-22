@@ -1,0 +1,41 @@
+﻿<Page
+    x:Class="TrDictionary.Client.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TrDictionary.Client"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Grid Background="Purple">
+            <Viewbox Margin="20"  HorizontalAlignment="Left">
+                <TextBlock Text="Türkçe Sözlük" VerticalAlignment="Center" Foreground="White"/>
+            </Viewbox>
+        </Grid>
+        <StackPanel Grid.Row="1">
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Header="Sözcük" MinHeight="21" x:Name="TextBoxKey"  VerticalAlignment="Bottom" />
+                <Button Content="Bul" x:Name="ButtonFind" Click="ButtonFind_Click" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Stretch"></Button>
+            </Grid>
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <RadioButton Content="ile başlayan" IsChecked="True" x:Name="RAdioButtonStartWith"/>
+                <RadioButton Content="tam eşleşme" x:Name="RadioButtonExactMatch"/>
+            </StackPanel>
+        </StackPanel>
+        <ListView x:Name="ListViewResults" Grid.Row="2">
+        </ListView>
+        <WebView Grid.Row="2" x:Name="WebViewResults"></WebView>
+        <TextBlock Text="Üzgünüm, bu sözcüğü bilmiyorum. :(" Grid.Row="2" x:Name="TextBlockUnknown" Visibility="Collapsed"/>
+    </Grid>
+</Page>
