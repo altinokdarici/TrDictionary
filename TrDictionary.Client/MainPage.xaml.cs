@@ -72,7 +72,7 @@ namespace TrDictionary.Client
                             {
                                 if (attr.Value == "main_body")
                                 {
-                                    for (int i = 0; i < 19; i++)
+                                    for (int i = 0; i < 18; i++)
                                     {
                                         item.RemoveChild(item.FirstChild);
 
@@ -88,6 +88,7 @@ namespace TrDictionary.Client
                                             }
                                         }
                                     }
+                                    item.InnerHtml = item.InnerHtml.Replace("cccccc", "ffffff");
                                     item.InnerHtml += "<a>Sonuçlar http://tdk.gov.tr/ üzerinden sağlanmaktadır.</a>";
                                     WebViewResults.NavigateToString(item.InnerHtml);
 
